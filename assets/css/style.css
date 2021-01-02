@@ -70,7 +70,7 @@ section {
 .section-heading {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(-45deg, #3db3c5, #274685);
+  background: /*linear-gradient(-45deg, #3db3c5, #274685)*/ black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -647,7 +647,7 @@ section {
 # Hero Section
 --------------------------------------------------------------*/
 .hero-section {
-  background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%), url(../img/hero-bg.jpg);
+  background:  /*linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%),*/url(../img/background-img.jpg);
   position: relative;
 }
 
@@ -656,7 +656,7 @@ section {
   overflow: hidden;
   position: absolute;
   z-index: 1;
-  bottom: -150px;
+  bottom: -100px;
 }
 
 @media screen and (max-width: 992px) {
