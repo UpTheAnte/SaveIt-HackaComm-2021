@@ -361,7 +361,7 @@ section {
 }
 
 .sticky-wrapper .site-navbar .site-menu > li > a {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 .sticky-wrapper .site-navbar .site-menu > li > a:hover, .sticky-wrapper .site-navbar .site-menu > li > a.active {
@@ -647,7 +647,10 @@ section {
 # Hero Section
 --------------------------------------------------------------*/
 .hero-section {
-  background:  /*linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%),*/url(../img/background-img.jpg);
+  background:  /*linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%),*/  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),url(../img/powerline-dark-bg.jpg);
   position: relative;
 }
 
