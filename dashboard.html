@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <script src="firebase.js"></script>
+<script src="popup.js"></script>
+
+
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -374,6 +378,38 @@
             </div>
         </div>
     </div>
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+    
+    <button class="open-button" onclick="openForm()">Open Form</button>
+    
+    <div class="form-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <button type="submit" class="btn">Enter SmartMeter</button>
+        <button type="submit" class="btn">Enter Individual Devices</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+    
+    <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+    
+    </body>
+    </html>
+    
 
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
