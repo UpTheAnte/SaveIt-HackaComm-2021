@@ -840,7 +840,7 @@ section {
 }
 
 .site-navbar .site-navigation .site-menu > li.active > a {
-  color: #fff !important;
+  color: #fff;
 }
 
 .site-navbar .site-navigation .site-menu .has-children {
@@ -1348,4 +1348,3 @@ section {
   width: 25%;
   color: #000;
 }
-
