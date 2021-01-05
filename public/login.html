@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SaveIt</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/7.17.1/firebase-app.js"></script>
+  <!-- Add the entire Firebase JavaScript SDK -->
+  <script src="/__/firebase/7.17.1/firebase.js"></script>
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+
+  <script type="text/javascript">// Initialize Firebase with a "default" Firebase project
+      var defaultProject = firebase.initializeApp(firebaseConfig);
+      console.log(defaultProject.name);  // "[DEFAULT]"
+      // Option 1: Access Firebase services via the defaultProject variable
+      var defaultStorage = defaultProject.storage();
+      var defaultFirestore = defaultProject.firestore();
+  </script>
+  
+  <script type="text/javascript">
+      var uiConfig = {
+      callbacks: {
+          signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          return true;
+          },
+          uiShown: function() {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none';
+          }
+      },
+      signInSuccessUrl: 'dashboard.html',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      ],
+      credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+      // tosUrl and privacyPolicyUrl accept either url string or a callback
+      // function.
+      // Terms of service url/callback.
+      tosUrl: 'https://2021.cusec.net/',
+      // Privacy policy url/callback.
+      privacyPolicyUrl: function() {
+        window.location.assign('https://2021.cusec.net/');
+      }
+    };
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+  </script>
+
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: SoftLand - v2.2.0
+  * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile Menu ======= -->
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icofont-close js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-6 col-lg-2">
+          <h1 class="mb-0 site-logo"><a href="index.html" class="mb-0">SoftLand</a></h1>
+        </div>
+
+        <div class="col-12 col-md-10 d-none d-lg-block">
+          <nav class="site-navigation position-relative text-right" role="navigation">
+
+            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+              <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-6 d-inline-block d-lg-none ml-md-0 py-3" style="position: relative; top: 3px;">
+
+          <a href="#" class="burger site-menu-toggle js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+            <span></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <main id="main">
+
+    <section class="hero-section inner-page">
+      <div class="wave">
+
+        <svg width="1920px" height="265px" viewBox="0 0 1920 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
+              <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,667 L1017.15166,667 L0,667 L0,439.134243 Z" id="Path"></path>
+            </g>
+          </g>
+        </svg>
+
+      </div>
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12">
+            <div class="row justify-content-center">
+              <div class="col-md-7 text-center hero-text">
+                <h1 data-aos="fade-up" data-aos-delay="">Login</h1>
+                <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Get started on SaveIt!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main><!-- End #main -->
+
+  <section>
+    <div id="firebaseui-auth-container"></div>
+  </section>
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
