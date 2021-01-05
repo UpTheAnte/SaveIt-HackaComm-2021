@@ -8973,7 +8973,7 @@ a:focus {
   display: flex;
 }
 #wrapper #content-wrapper {
-  background-color: #f8f9fc;
+  background-color: black;
   width: 100%;
   overflow-x: hidden;
 }
@@ -9164,7 +9164,7 @@ a:focus {
   color: #6e707e !important;
 }
 .text-gray-800 {
-  color: #5a5c69 !important;
+  color: #5a5c69;
 }
 .text-gray-900 {
   color: #3a3b45 !important;
