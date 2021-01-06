@@ -33,6 +33,7 @@
         console.log(queryString);
         const urlParams = new URLSearchParams(queryString);
         const uid=urlParams.get('userid')
+        // UID of user
         console.log(uid);
     </script>
 </head>
@@ -421,6 +422,7 @@
         const form = document.querySelector('form');
         form.addEventListener('submit', handleSubmit)
     </script>
+
     <!--
     <script>
         function openForm() {
@@ -472,5 +474,32 @@
     <script src="/__/firebase/8.2.1/firebase-auth.js"></script>
     <script src="/__/firebase/8.2.1/firebase-firestore.js"></script>
   </body>
+
+  <script>
+    var admin = require("firebase-admin");
+    //Fetch the service account key JSON file contents
+    var serviceAccount = require("path/to/serviceAccountKey.json");
+    //Initialize the app with a service account, granting admin privileges
+    admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://saveit-2457d-default-rtdb.firebaseio.com/",
+    });
+
+    // As an admin, the app has access to read and write all data, regardless of Security Rules
+    var db = admin.database();
+    var ref = db.ref("restricted_access/secret_document");
+    ref.once("value", function (snapshot) {
+    console.log(snapshot.val());
+    });
+
+    function writeUserData(userId) {
+        firebase.database().ref('users/' + userId).set({
+            electricity: myJSON
+        });
+        console.log("success");
+        }
+    
+    writeUserData(uid);
+</script>
 
 </html>
