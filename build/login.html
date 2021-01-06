@@ -10,8 +10,9 @@
   <meta content="" name="keywords">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="/__/firebase/7.17.1/firebase-app.js"></script>
@@ -29,21 +30,7 @@
   </script>
   
   <script type="text/javascript">
-      var uiConfig = {
-      callbacks: {
-          signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-          return true;
-          },
-          uiShown: function() {
-          // The widget is rendered.
-          // Hide the loader.
-          document.getElementById('loader').style.display = 'none';
-          }
-      },
-      signInSuccessUrl: 'dashboard.html',
+      var uiConfig = {   
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -57,6 +44,25 @@
       // Privacy policy url/callback.
       privacyPolicyUrl: function() {
         window.location.assign('https://2021.cusec.net/');
+      },
+      callbacks: {
+        /*
+          signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          return false;
+          },
+          uiShown: function() {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none';
+          },*/
+          signInSuccess: function(currentUser, credential, redirectUrl){
+            const userId = currentUser.uid;
+            window.location.assign('dashboard.html?userid='+userId);
+            return false;
+          }
       }
     };
     // Initialize the FirebaseUI Widget using Firebase.
@@ -160,7 +166,29 @@
   </section>
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+      console.log("user uid: " + user.uid)
+      console.log("user email: " + user.email)
+  }
+})
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(() => {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  })
+    .catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
 
+  </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
