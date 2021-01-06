@@ -69,7 +69,19 @@
             <input type="date" id="date-smartmeter" name="date-smartmeter">
             <label for ="usage" style="color: white; margin-left: 20px;">Usage:</label>
             <input type="usage" id="usage" name="usage">
-            <a href="dashboard.html" style="color: white; margin-left: 20px;">Submit</a>
+            <button type="submit" style="color: black; margin-left: 20px;">Submit</button>
         </form>
 </body>
+<script>
+  function handleSubmit(event){
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const value = data.get('usage');
+    var myJSON = JSON.stringify(value);
+    console.log({myJSON});
+    console.log({value});
+  }
+  const form = document.querySelector('form');
+  form.addEventListener('submit', handleSubmit)
+</script>
 </html>
