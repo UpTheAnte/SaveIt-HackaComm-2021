@@ -16,7 +16,7 @@
     <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -28,7 +28,13 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <script>
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        const uid=urlParams.get('userid')
+        console.log(uid);
+    </script>
 </head>
 
 <body id="page-top">
@@ -387,6 +393,18 @@
           document.getElementById("myForm").style.display = "block";
         }
         
+        /*
+        var user = firebase.auth().currentUser;
+        firebase.auth().onAuthStateChanged(function(user){
+            if (user) {
+                console.log(user.uid);
+                console.log(user.email);
+            // User is signed in.
+            } else {
+            console.log("no user signed in")
+            }
+        });   
+        */
     </script>
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -409,7 +427,6 @@
 
 <body>
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-  
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="/__/firebase/8.2.1/firebase-app.js"></script>
   
