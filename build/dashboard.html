@@ -34,7 +34,7 @@
         const urlParams = new URLSearchParams(queryString);
         const uid=urlParams.get('userid')
         // UID of user
-        console.log(uid);
+        console.log('uid: ' + uid);
     </script>
 </head>
 
@@ -476,13 +476,14 @@
   </body>
 
   <script>
+      /*
     var admin = require("firebase-admin");
     //Fetch the service account key JSON file contents
     var serviceAccount = require("path/to/serviceAccountKey.json");
     //Initialize the app with a service account, granting admin privileges
     admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://saveit-2457d-default-rtdb.firebaseio.com/",
+    databaseURL: "https://saveit-2457d-default-rtdb.firebaseio.com/users",
     });
 
     // As an admin, the app has access to read and write all data, regardless of Security Rules
@@ -499,7 +500,19 @@
         console.log("success");
         }
     
-    writeUserData(uid);
+    writeUserData(uid); */
+    var admin=require("firebase-admin");
+    var db=admin.database();
+    var ref = db.ref('users');
+    ref.on('value', function(snapshot){
+        snapshot.forEach(function(childSnapShot){
+            var childData = childSnapShot.val;
+            console.log(childData);
+        });
+    });
+
+
+
 </script>
 
 </html>
