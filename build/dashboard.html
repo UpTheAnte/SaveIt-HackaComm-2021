@@ -254,10 +254,11 @@
                 <div class="container-fluid" style="text-align: center;">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4" style="text-align:center;">
                         <h1 class="h3 mb-0 text-gray-800" style="color:white; margin-left: 20px;">Dashboard</h1>
+                        <!--
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
                     </div>
 
                     <!-- Content Row -->
@@ -323,14 +324,14 @@
                             </div>
                         </div>
                      </div>   
-                    <!-- Content Row -->
+                    <!-- Content Row 
+                     
+                    <div class="row" style="margin-left: 20px;">-->
 
-                    <div class="row" style="margin-left: 20px;">
-
-                        <!-- Area Chart -->
+                        <!-- Area Chart 
                         <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
+                            <div class="card shadow mb-4">-->
+                                <!-- Card Header - Dropdown 
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary" style="font-size: 20px;">Usage Overview</h6>
@@ -348,20 +349,20 @@
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Card Body -->
+                                </div>-->
+                                <!-- Card Body 
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
-                        <!-- Pie Chart -->
+                        <!-- Pie Chart
                         <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
+                            <div class="card shadow mb-4"> -->
+                                <!-- Card Header - Dropdown 
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary" style="font-size: 20px;">Tips to save electricity</h6>
                                     <ul style="text-align: left; color:black;">
@@ -371,7 +372,7 @@
                                         <li>Maintain your insulation</li>
                                         <li>Air dry whenever possible</li>
                                     </ul>
-                                </div>
+                                </div>-->
                                 <!-- Card Body 
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
@@ -501,18 +502,15 @@
         }
     
     writeUserData(uid); */
-    var admin=require("firebase-admin");
-    var db=admin.database();
+    
+    var db=firebase.database();
     var ref = db.ref('users');
     ref.on('value', function(snapshot){
         snapshot.forEach(function(childSnapShot){
-            var childData = childSnapShot.val;
+            var childData = childSnapShot.val();
             console.log(childData);
         });
     });
-
-
-
 </script>
 
 </html>
